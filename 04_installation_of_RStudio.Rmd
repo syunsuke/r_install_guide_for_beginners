@@ -1,0 +1,98 @@
+# RStudioのインストール
+
+Rの統合開発環境（IDE）であるRStudioのインストールを紹介します。
+
+## RStudio
+
+[RStudio](https://www.rstudio.com/)のWebページでは、
+IDEだけでなく
+Rで人気のパッケージの開発も行われており、
+それらの情報も、このWebページから辿ることが出来ます。
+
+```{r rstudiotop001, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiotop001.png")
+```
+[https://www.rstudio.com/](https://www.rstudio.com/)
+
+
+## セットアップファイルのダウンロード
+
+トップページを少し下へスクロールするとRStudioのダウンロードリンクがあるので、
+それをクリックしてダウンロードページへ行きます。
+
+```{r rstudiotop002, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiotop002.png")
+```
+
+
+切り替わったページの初めの方は、RStudioのライセンス形態についての紹介がされているので下の方へスクロールしましょう。
+
+```{r rstudiodl001, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiodl001.png")
+```
+
+下の方で**Installers for Supported Platforms**という項目がみつかります。
+
+そこに各ＯＳ毎のインストールファイルへのリンクがあります。
+Windows用のインストーラーリンクをクリックして、インストーラーを保存しましょう。
+
+```{r rstudiodl002, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiodl002.png")
+```
+
+
+## インストール
+
+
+ダウンロードされたセットアップファイル「RStudio-1.2.1335.exe」をダブルクリックします。
+（ファイル名の数字はバージョンで時期により異なります）
+
+```{r rstudiosetupfile, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiosetupfile.png")
+```
+
+Windwosのデバイスに変更を加える注意のダイアログに答えると、セットアップが始まります。
+
+### セットアップのスタート
+
+```{r rstudiosetup001, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiosetup001.png")
+```
+
+「次へ」をクリックします
+
+### インストール先の指定
+
+```{r rstudiosetup002, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiosetup002.png")
+```
+
+既に適当な場所が入力されているはずなので、そのまま「次へ」をクリック
+
+
+### スタートメニューフォルダの選択
+
+```{r rstudiosetup003, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiosetup003.png")
+```
+
+そのままの状態で「インストール」をクリック
+
+
+### インストールがはじまります。
+
+```{r rstudiosetup004, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiosetup004.png")
+```
+
+パソコンにファイルが展開されて実際にインストールされます。
+
+
+### インストールが完了します。
+
+```{r rstudiosetup005, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/rstdi/rstudiosetup005.png")
+```
+
+暫くすると、インストール完了のダイアログがでるので「完了」をクリックして、インストールを完了させましょう。
+

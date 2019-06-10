@@ -1,0 +1,55 @@
+--- 
+title: "Rの環境を整える"
+author: "Syunsuke Fukuda"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: bxjsbook
+classoption: xelatex,ja=standard
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+
+# 出力フォーマットが TeX（PDF含む）の場合のみ対処する
+if (knitr::opts_knit$get("rmarkdown.pandoc.to") %in% c("beamer", "latex")) {
+
+  # conversion failure on '...' in 'mbcsToSbcs' の Warning 発生の workaround
+  options(device = function(file, width = 7, height = 7, ...) {
+    cairo_pdf(tempfile(), width = width, height = height, ...)
+  })
+  
+  ## 1. cairo_pdf を使う方法
+  # * family には OS にインストールされているフォント名を指定する。
+  knitr::opts_chunk$set(dev="cairo_pdf", dev.args=list(family="Meiryo"))
+}
+```
+
+# はじめに
+
+データ分析のセミナー等に参加しようとすると、
+持ち込みのノートパソコンに事前にRやRStuido等をインストールしておいて下さいと指示されることがありますが、
+そんな時に、しっかりＲ講義を受けるための準備をして行けるように、
+その準備についての紹介をすることを目的としています。
+
+一般に、Rでの分析を始める時には、次の３つの準備が必要になります。
+
+- Rのインストール
+- RStudioのインストール
+- Rのパッケージのインストール
+
+
+まずは、あなたのパソコンに**R言語の処理を行ってくれるプログラム**をインストールします。
+
+次に、一般的にプログラミングを行う場合には、
+その作業を便利にサポートしてくれる統合開発環境と呼ばれるソフトを使います。
+R言語については、**RStudio**と呼ばれる統合開発環境が有名ですので、
+ここでは、このRStudioのインストールを行います。
+
+最後にR言語の機能を拡張するための**パッケージ**をインストールします。
+パッケージは、作業の内容により必要とされるものが異なる場合がありますが、
+一般の作業でよく使うパッケージのインストールを通じて、パッケージのインストール自体の説明を行います。
+実際に必要となるパッケージは、その指示に従って、必要となるパッケージをインストールしましょう。
+
+尚、Windows上のトラブルとして耳にすることが多い、
+**RStudioが上手く起動しない**場合についての解決策についても紹介します。
+

@@ -1,0 +1,12 @@
+\usepackage{bookmark} 
+\usepackage{xltxtra} 
+\usepackage{zxjatype} 
+\usepackage[ipa]{zxjafont} 
+\usepackage{float}
+
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \global\@topnum\z@
+  \secdef\@chapter\@schapter}
+\makeatother
