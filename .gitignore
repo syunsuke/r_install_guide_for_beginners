@@ -40,3 +40,6 @@ rsconnect/
 
 /docs/
 
+/_bookdown_files/
+
+my_book.log
