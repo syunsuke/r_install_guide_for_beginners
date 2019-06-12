@@ -1,5 +1,5 @@
 --- 
-title: "Rの環境を整える"
+title: "初心者向けRのインストールガイド"
 author: "Syunsuke Fukuda"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -8,7 +8,7 @@ classoption: xelatex,ja=standard
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, fig.align = "center")
 
 # 出力フォーマットが TeX（PDF含む）の場合のみ対処する
 if (knitr::opts_knit$get("rmarkdown.pandoc.to") %in% c("beamer", "latex")) {
@@ -28,8 +28,7 @@ if (knitr::opts_knit$get("rmarkdown.pandoc.to") %in% c("beamer", "latex")) {
 
 データ分析のセミナー等に参加しようとすると、
 持ち込みのノートパソコンに事前にRやRStuido等をインストールしておいて下さいと指示されることがありますが、
-そんな時に、しっかりＲ講義を受けるための準備をして行けるように、
-その準備についての紹介をすることを目的としています。
+そんな時でも、この文書を活用すれば、しっかりＲ講義を受けるための準備が出来ます。
 
 一般に、Rでの分析を始める時には、次の３つの準備が必要になります。
 
