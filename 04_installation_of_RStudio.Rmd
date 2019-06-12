@@ -93,9 +93,10 @@ knitr::include_graphics("images/rstdi/rstudiosetup004.png")
 
 ### インストールが完了します。
 
+暫くすると、インストール完了のダイアログがでるので「完了」をクリックして、インストールを完了させましょう。（図\@ref(fig:rstudiosetup005)）
+
 ```{r rstudiosetup005, echo=FALSE, out.width="70%", fig.cap="install dialog: 完了"}
 knitr::include_graphics("images/rstdi/rstudiosetup005.png")
 ```
 
-暫くすると、インストール完了のダイアログがでるので「完了」をクリックして、インストールを完了させましょう。（図\@ref(fig:rstudiosetup005)）
 
