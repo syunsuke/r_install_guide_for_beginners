@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>4 RStudioでパッケージをインストールする | 初心者向けRのインストールガイド</title>
+  <meta name="description" content="4 RStudioでパッケージをインストールする | 初心者向けRのインストールガイド">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="4 RStudioでパッケージをインストールする | 初心者向けRのインストールガイド" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 RStudioでパッケージをインストールする | 初心者向けRのインストールガイド" />
+  
+  
+  
+
+<meta name="author" content="Syunsuke Fukuda">
+
+
+<meta name="date" content="2019-06-14">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="04_installation_of_RStudio.html">
+<link rel="next" href="06_check_before_installation.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">初心者向けRのインストールガイド<a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a></li>
+<li class="chapter" data-level="2" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html"><i class="fa fa-check"></i><b>2</b> Rのインストール</a><ul>
+<li class="chapter" data-level="2.1" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#the-r-project-for-statistical-computing"><i class="fa fa-check"></i><b>2.1</b> The R Project for Statistical Computing</a></li>
+<li class="chapter" data-level="2.2" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#cran"><i class="fa fa-check"></i><b>2.2</b> CRAN</a></li>
+<li class="chapter" data-level="2.3" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-1"><i class="fa fa-check"></i><b>2.3</b> セットアップファイルのダウンロード</a></li>
+<li class="chapter" data-level="2.4" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-2"><i class="fa fa-check"></i><b>2.4</b> インストール</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-3"><i class="fa fa-check"></i><b>2.4.1</b> ライセンスへの同意</a></li>
+<li class="chapter" data-level="2.4.2" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-4"><i class="fa fa-check"></i><b>2.4.2</b> インストール先の指定</a></li>
+<li class="chapter" data-level="2.4.3" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-5"><i class="fa fa-check"></i><b>2.4.3</b> コンポーネントの選択</a></li>
+<li class="chapter" data-level="2.4.4" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-6"><i class="fa fa-check"></i><b>2.4.4</b> 起動時オプション</a></li>
+<li class="chapter" data-level="2.4.5" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-7"><i class="fa fa-check"></i><b>2.4.5</b> プログラムグループの指定</a></li>
+<li class="chapter" data-level="2.4.6" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-8"><i class="fa fa-check"></i><b>2.4.6</b> 追加タスクの選択</a></li>
+<li class="chapter" data-level="2.4.7" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-9"><i class="fa fa-check"></i><b>2.4.7</b> インストールがはじまります</a></li>
+<li class="chapter" data-level="2.4.8" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-10"><i class="fa fa-check"></i><b>2.4.8</b> インストールが完了します</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html"><i class="fa fa-check"></i><b>3</b> RStudioのインストール</a><ul>
+<li class="chapter" data-level="3.1" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#rstudio-1"><i class="fa fa-check"></i><b>3.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.2" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-11"><i class="fa fa-check"></i><b>3.2</b> セットアップファイルのダウンロード</a></li>
+<li class="chapter" data-level="3.3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-12"><i class="fa fa-check"></i><b>3.3</b> インストール</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-13"><i class="fa fa-check"></i><b>3.3.1</b> セットアップのスタート</a></li>
+<li class="chapter" data-level="3.3.2" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-14"><i class="fa fa-check"></i><b>3.3.2</b> インストール先の指定</a></li>
+<li class="chapter" data-level="3.3.3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-15"><i class="fa fa-check"></i><b>3.3.3</b> スタートメニューフォルダの選択</a></li>
+<li class="chapter" data-level="3.3.4" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-16"><i class="fa fa-check"></i><b>3.3.4</b> インストールがはじまります。</a></li>
+<li class="chapter" data-level="3.3.5" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-17"><i class="fa fa-check"></i><b>3.3.5</b> インストールが完了します。</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html"><i class="fa fa-check"></i><b>4</b> RStudioでパッケージをインストールする</a><ul>
+<li class="chapter" data-level="4.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstudio-3"><i class="fa fa-check"></i><b>4.1</b> 初めてのRStudio</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstuido"><i class="fa fa-check"></i><b>4.1.1</b> RStuidoの起動</a></li>
+<li class="chapter" data-level="4.1.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstudio-4"><i class="fa fa-check"></i><b>4.1.2</b> RStudioは区画に分かれている</a></li>
+<li class="chapter" data-level="4.1.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-18"><i class="fa fa-check"></i><b>4.1.3</b> 各区画の内容はタブで切り変えられる</a></li>
+<li class="chapter" data-level="4.1.4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstudio-6"><i class="fa fa-check"></i><b>4.1.4</b> RStudioの大まかな配置</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-22"><i class="fa fa-check"></i><b>4.2</b> パッケージのインストール</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#packages"><i class="fa fa-check"></i><b>4.2.1</b> Packagesペイン</a></li>
+<li class="chapter" data-level="4.2.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-23"><i class="fa fa-check"></i><b>4.2.2</b> インストール用ダイアログ</a></li>
+<li class="chapter" data-level="4.2.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#console"><i class="fa fa-check"></i><b>4.2.3</b> 左区画のConsoleペインでインストール進捗状況を確認</a></li>
+<li class="chapter" data-level="4.2.4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-24"><i class="fa fa-check"></i><b>4.2.4</b> その他よく使うパッケージのインストール</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#github"><i class="fa fa-check"></i><b>4.3</b> GitHubで公開されているパッケージのインストール</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-25"><i class="fa fa-check"></i><b>4.3.1</b> コンソールの基礎的知識</a></li>
+<li class="chapter" data-level="4.3.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#devtools"><i class="fa fa-check"></i><b>4.3.2</b> devtoolsパッケージが必須</a></li>
+<li class="chapter" data-level="4.3.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#reti"><i class="fa fa-check"></i><b>4.3.3</b> retiパッケージのインストール</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html"><i class="fa fa-check"></i><b>5</b> RStudioが上手く起動しない時の対策</a><ul>
+<li class="chapter" data-level="5.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-29"><i class="fa fa-check"></i><b>5.1</b> ホームディレクトリ名のチェックの方法</a><ul>
+<li class="chapter" data-level="" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-30"><i class="fa fa-check"></i>ディレクトリ名が半角英数のみの場合</a></li>
+<li class="chapter" data-level="" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-31"><i class="fa fa-check"></i>ディレクトリ名に日本語が含まれる場合</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-32"><i class="fa fa-check"></i><b>5.2</b> 対策について</a></li>
+<li class="chapter" data-level="5.3" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-33"><i class="fa fa-check"></i><b>5.3</b> 新しいアカウントの作成</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#windows"><i class="fa fa-check"></i><b>5.3.1</b> Windowsのアカウントには２つの種類ある</a></li>
+<li class="chapter" data-level="5.3.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-34"><i class="fa fa-check"></i><b>5.3.2</b> ユーザーローカルアカウントの追加</a></li>
+<li class="chapter" data-level="5.3.3" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-35"><i class="fa fa-check"></i><b>5.3.3</b> 管理者権限について</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-36"><i class="fa fa-check"></i><b>5.4</b> アカウントの切り替え</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-37"><i class="fa fa-check"></i><b>5.4.1</b> ログイン画面での切り替え</a></li>
+<li class="chapter" data-level="5.4.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-38"><i class="fa fa-check"></i><b>5.4.2</b> スタートボタンからの切り替え</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">初心者向けRのインストールガイド</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rstudio-2" class="section level1">
+<h1><span class="header-section-number">4</span> RStudioでパッケージをインストールする</h1>
+<p>Rのシステムは<strong>パッケージ</strong>をインストールすることで、
+機能を拡張することが出来る仕組みになっています。
+このパッケージは、世界各国の現場の研究者達やRStudioチームをはじめとするオープンソース開発者達が独自に開発して公開しています。
+また、パッケージには、CRANを通じて公式に配布されているものと、
+GitHub等を通じてプログラマが独自に配布しているものとがあります。</p>
+<p>ここでは、初めて立ち上げるRStudioについての簡単な紹介と、
+そのRStudioを使ったパッケージのインストール方法を紹介します。</p>
+<p>尚、基本的にRStudio上でのインストール操作を行うと
+RStudioがインターネット経由でCRANからパッケージファイルをダウンロードし、
+それをインストールしてくれます。
+そこで、以下の手順は、
+<strong>インターネットに繋がっている環境で行う必要</strong>があります。</p>
+<div id="rstudio-3" class="section level2">
+<h2><span class="header-section-number">4.1</span> 初めてのRStudio</h2>
+<p>これからデータ分析を行うために使っていく事になる
+<strong>RStudio</strong>はどんなものなのかを簡単に紹介します。</p>
+<div id="rstuido" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> RStuidoの起動</h3>
+<p>ここまでのインストール作業で、<strong>Rのシステム</strong>と<strong>RStudio</strong>の２つをインストールしました。
+Windowsのスタートメニューには、RとRStudioの両方を見つけることが出来ます。
+しかし、これからあなたはRの作業を常に<strong>RStudio</strong>で行います。
+ですから、WindowsスタートメニューのRのフォルダは気にせずに、RStudio（図<a href="05_installation_of_packages.html#fig:windowsStartMenu">4.1</a>）だけに注目してください。</p>
+<div class="figure" style="text-align: center"><span id="fig:windowsStartMenu"></span>
+<img src="images/rpi/windows_start_menu.png" alt="スタートメニュの中のRStudio" width="95%" />
+<p class="caption">
+Figure 4.1: スタートメニュの中のRStudio
+</p>
+</div>
+<p>では、早速、RStudioを起動して下さい。</p>
+</div>
+<div id="rstudio-4" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> RStudioは区画に分かれている</h3>
+<div class="figure" style="text-align: center"><span id="fig:rstudioLook001"></span>
+<img src="images/rpi/rstudio_look001.png" alt="RStudio" width="90%" />
+<p class="caption">
+Figure 4.2: RStudio
+</p>
+</div>
+<p>RStudioの画面は、いつも、幾つかの区画に分かれています。
+（図<a href="05_installation_of_packages.html#fig:rstudioLook001">4.2</a>）
+立ち上げた直後は、左に大きな区画が１つと右に上下に区切られた区画が２つあります。
+しかし、作業をしているうちに、だいたい左側も上下２つの区画に分かれるので、
+RStudioの見た目は４つの区画に分かれています。
+尚、区画の事を<strong>ペイン</strong>（pane:ガラス板とか格子という意味）と
+表現されていることもあるので、ペインと聞いたら「ああ、区画の事ね」と把握しましょう。</p>
+<div id="rstudio-5" class="section level4 unnumbered">
+<h4>真っ白なRStudio</h4>
+<p>さて、ここで、区分どころか、いつまでたってもRStudioの画面が真っ白なままの方がいるかもしれません。（図<a href="05_installation_of_packages.html#fig:whiteRstudio">4.3</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:whiteRstudio"></span>
+<img src="images/rpi/white_rstudio.png" alt="真っ白なRStudio" width="95%" />
+<p class="caption">
+Figure 4.3: 真っ白なRStudio
+</p>
+</div>
+<p>これは、ホームディレクトリの名前に日本語文字が使われている場合に見られる不具合です。このような不具合が出ている場合は、後述の<strong>RStudioが上手く起動しない時の対策</strong>を試してください。</p>
+</div>
+</div>
+<div id="section-18" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> 各区画の内容はタブで切り変えられる</h3>
+<p>RStudioは画面の中にあらゆる機能が凝縮されているため、
+小さな部分に重要な機能が沢山潜んでいます。
+例えば、各区画をもう少しよく見てみましょう。
+この区画の上部をよく見てもらうと、どの区画にも<strong>タブ</strong>が並んでいるのをみつけることが出来るはずです。</p>
+<p>まずは、右上の区画の上部に注目です。</p>
+<div class="figure" style="text-align: center"><span id="fig:tabRightUpper"></span>
+<img src="images/rpi/tab_right_upper.png" alt="右上区画のタブ" width="70%" />
+<p class="caption">
+Figure 4.4: 右上区画のタブ
+</p>
+</div>
+<p>続いて、右下の区画の上部に目を移してください。</p>
+<div class="figure" style="text-align: center"><span id="fig:tabRightLower"></span>
+<img src="images/rpi/tab_right_lower.png" alt="右下区画のタブ" width="70%" />
+<p class="caption">
+Figure 4.5: 右下区画のタブ
+</p>
+</div>
+<p>そして、このタブをクリックすることで、
+各区画の内容を切り替えることが出来ます。</p>
+</div>
+<div id="rstudio-6" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> RStudioの大まかな配置</h3>
+<p>初めてみるRStudioは複雑そうに見えますが、
+これらかデータ分析を行っていくあなたは、
+次第に、この殆ど全ての機能を使いこなすようになります。</p>
+<p>まず、各区画の大まかな機能について、把握しましょう。</p>
+<div id="section-19" class="section level4 unnumbered">
+<h4>メインの作業場となる左側区画</h4>
+<p>一番初めに、表示されているのは<strong>Console</strong>タブであり、
+コンソールが表示されています。
+コンソールは、Rのコマンドを打ち込んで結果を得るための場所であり、
+Rでのデータ分析においてメインの作業場になります。</p>
+<p>また、この左側の区画も、上下２段に分割されます。
+その場合、コンソールは下段になり、
+上段は主にプログラムコードの編集等、ファイルの編集区画が開きます。
+そして、編集作業では、複数のファイルを開く事が出来、
+上段区画のタブで開いている各ファイルを切り替えることが出来ます。（図<a href="05_installation_of_packages.html#fig:rstudio4pane">4.6</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudio4pane"></span>
+<img src="images/rpi/rstudio_4pane.png" alt="RStudioの左区画" width="90%" />
+<p class="caption">
+Figure 4.6: RStudioの左区画
+</p>
+</div>
+</div>
+<div id="section-20" class="section level4 unnumbered">
+<h4>変数確認の右上区画</h4>
+<p>主に、プログラムを実行している際の変数の内容を確認したり（Environmentタブ）、
+コンソールに打ち込んだコマンドの履歴を見たり（Historyタブ）します。</p>
+</div>
+<div id="section-21" class="section level4 unnumbered">
+<h4>色々な情報が混在する右下区画</h4>
+<p>右下区画には、様々な情報が表示されるので、常にタブを切り替えて使うことになります。
+右下区画のタブには通常以下のものがあります。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">タブ名</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Files</td>
+<td align="left">ファイル管理</td>
+</tr>
+<tr class="even">
+<td align="left">Plots</td>
+<td align="left">グラフ表示</td>
+</tr>
+<tr class="odd">
+<td align="left">Packages</td>
+<td align="left">パッケージ管理</td>
+</tr>
+<tr class="even">
+<td align="left">Help</td>
+<td align="left">マニュアル閲覧</td>
+</tr>
+<tr class="odd">
+<td align="left">Viewer</td>
+<td align="left">データ閲覧</td>
+</tr>
+</tbody>
+</table>
+<p>ここまでで、RStudioの基礎として２つの事を把握しました。</p>
+<ol style="list-style-type: decimal">
+<li>各区画にに分かれている事</li>
+<li>各区画はタブで内容を切り変えられる事</li>
+</ol>
+<p>次は実際に、RStudioの機能に触れてみましょう。</p>
+</div>
+</div>
+</div>
+<div id="section-22" class="section level2">
+<h2><span class="header-section-number">4.2</span> パッケージのインストール</h2>
+<p>CRANに登録されているパッケージは、2019/5/31時点で14,307あります。
+しかし、RのパッケージはCRANに登録されずにGitHub上のみで
+公開されているものもあるので、
+世の中にあるRパッケージは上記の数よりもずっと多く存在します。
+Rでは、これらの全てのパッケージをインストールしなければならないわけでは無く、
+これらのうちから自分の作業に必要なもののみをインストールします。</p>
+<p>一般的に、Rで新しいことをはじめようとする場合、
+参考書等でほぼ初めに述べられるのが、
+その作業に必要となるパッケージのインストールについてです。
+また、Rのバージョンアップを行ったり、再インストールを行った場合には、
+いつも使っていたパッケージについて、再度インストールする必要が生じます。</p>
+<p>以上のことから、R言語を利用する場合、パッケージの管理は必須の作業になります。</p>
+<p>ここでは、Rでのデータ分析にほぼ必須のパッケージである<strong>tidyverse</strong>を例に
+RStudioでのインストール作業を行っていきます。
+パッケージのインストールをはじめとするRStudioでのパッケージ管理作業は、
+右下区画のPackagesタブで行います。（図<a href="05_installation_of_packages.html#fig:rpackageinst002">4.7</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:rpackageinst002"></span>
+<img src="images/rpi/rpackage_inst002.png" alt="右下区画のタブ" width="70%" />
+<p class="caption">
+Figure 4.7: 右下区画のタブ
+</p>
+</div>
+<div id="packages" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Packagesペイン</h3>
+<p>Packagesペインに切り替えた右下区画には、
+既にインストールされているパッケージの一覧が表示されています。
+（図<a href="05_installation_of_packages.html#fig:rpackageinst003">4.8</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:rpackageinst003"></span>
+<img src="images/rpi/rpackage_inst003.png" alt="パッケージペイン" width="80%" />
+<p class="caption">
+Figure 4.8: パッケージペイン
+</p>
+</div>
+<p>青くなっているパッケージ名をクリックすると、
+表示がそのパッケージの解説に切り替わります。
+この時、良く見ると上部のタブが Help に切り替わっているはずです。
+<strong>元に戻りたい時は、慌てず Packages タブをクリック</strong>すれば、
+Packagesペインに切り替えることが出来ます。</p>
+<p>さて、Packagesペインのタブのすぐ下の部分をよく見てもらうと
+<strong>Install</strong>と<strong>Update</strong>という項目が並んでいるのを見つけられるはずです。</p>
+<div class="figure" style="text-align: center"><span id="fig:rpackageinst004"></span>
+<img src="images/rpi/rpackage_inst004.png" alt="インストールダイアログ呼び出しボタン" width="80%" />
+<p class="caption">
+Figure 4.9: インストールダイアログ呼び出しボタン
+</p>
+</div>
+<p>この Install と書かれている部分にカーソルを持っていくと、
+カーソルが指で指し示すマークに変わるので、クリックしましょう。
+画面の中央に、<strong>Install Packages</strong>というタイトルのダイアログが現れます。</p>
+</div>
+<div id="section-23" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> インストール用ダイアログ</h3>
+<p>このInstall Packages ダイアログの真ん中辺りに
+<strong>Packages(separate multiple with space or comma)</strong>と
+タイトルが付けられている入力フォームがあります。
+（図<a href="05_installation_of_packages.html#fig:rpackageinst005">4.10</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:rpackageinst005"></span>
+<img src="images/rpi/rpackage_inst005.png" alt="パッケージ名入力フォーム" width="80%" />
+<p class="caption">
+Figure 4.10: パッケージ名入力フォーム
+</p>
+</div>
+<p>この入力フォームに、インストールしたいパッケージ名を書き込み、
+下の Install と書かれているボタンを押すと、
+パッケージのインストールが始まります。</p>
+<p>ここでは、入力フォームに <strong>tidyverse</strong> と書き込んでみましょう。
+入力フォームに tidyverse と書けたら、下の Install ボタンを押してください。
+インストール作業が開始されます。</p>
+</div>
+<div id="console" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> 左区画のConsoleペインでインストール進捗状況を確認</h3>
+<p>実は、Rでのパッケージのインストールは、本来、
+コンソール上で、パッケージをインストールするためのコマンドを入力して
+実行することで行います。
+例えば、tidyverse のインストールを行う場合、
+コンソールのプロンプトに対して次のようなコマンドを入力して実行します。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre>
+<p>しかし、RStudioでは、
+Packagesペインから先のように Install Packages ダイアログ 上で作業を行うと、
+あなたのかわりにRStudioがRのパッケージをインストールするためのコマンドを
+コンソール上に書き込み、実行してくれる仕組みになっています。
+ですから、
+Install Packages ダイアログの Install ボタンを押した後、
+左側区画のConsoleペインには
+インストールに関する色々な情報が出力がされているはずです。
+出力は英語ですが、その主な内容は、
+インターネットを通じてパッケージをダウンロードし、
+適切な場所にインストールする進捗状況が示されています。</p>
+<p>ここでは、１つのパッケージを指定したとしても、
+デフォルトでは関連して必要となる他のパッケージも
+自動でインストールされますので
+インストール作業が完了するまでには少し時間が掛かることもあります。
+特に tidyverse を初めてインストールする時には関連パッケージが
+何十個もインストールされると共に、大きなファイルの展開などもされるため、
+<strong>数分待つ</strong>ことになるかもしれません。</p>
+<p>インストール作業が完了したら、
+プロンプト（入力待ちをあらわす <strong>&gt;</strong> というマーク）が戻ってくるので、
+それまでは、おとなしく待ちましょう。
+（図<a href="05_installation_of_packages.html#fig:rpackageinst006">4.11</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:rpackageinst006"></span>
+<img src="images/rpi/rpackage_inst006.png" alt="インストールの完了を知らせるプロンプト" width="80%" />
+<p class="caption">
+Figure 4.11: インストールの完了を知らせるプロンプト
+</p>
+</div>
+</div>
+<div id="section-24" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> その他よく使うパッケージのインストール</h3>
+<p>パッケージインストールの練習として、
+一般的によく使われる次のパッケージをインストールしてみましょう。
+特に <strong>devtools</strong> は必ず、インストールしてください。</p>
+<ul>
+<li>devtools</li>
+<li>data.table</li>
+<li>sf</li>
+</ul>
+<p>既にインストールされているパッケージを重複してインストールしても特に問題はないので、
+良く分からない場合は、とりあえず、インストールしてしまって構いません。</p>
+</div>
+</div>
+<div id="github" class="section level2">
+<h2><span class="header-section-number">4.3</span> GitHubで公開されているパッケージのインストール</h2>
+<p>先に少し述べた通り、
+Rのパッケージには、<strong>CRAN</strong>(シーラン)と呼ばれるRの公式プログラム配布場所から入手ができるものと、
+<strong>GitHub等のCRAN以外</strong>の場所から入手出来るものがあります。</p>
+<p>ここで、GitHubとは、世界中のプログラマが沢山のプログラムのソースコードを公開している有名なWebサービスです。
+プログラムの開発をサポートするサービスなので、CRANに登録されているRのパッケージも、その開発段階の最新のものはGitHub上にもあったりします。</p>
+<p>そこで、Rのパッケージの主な入手先は、
+<strong>CRAN</strong> か <strong>GitHub</strong> かの２種類になるのですが、</p>
+<p>GitHub上のパッケージは、
+先に説明した RStudio の Packageペインからの
+インストール機能を使ったインストールが出来ません。
+GitHubで公開されているパッケージをインストールするためには、本来的な、
+パッケージをインストールするための
+<strong>コンソールへのコマンド入力が必要</strong>となります。</p>
+<p>そこで、まずは、コマンド入力をしたことがない人のために、
+コンソールの基礎的な知識についての紹介を行います。</p>
+<div id="section-25" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> コンソールの基礎的知識</h3>
+<p>まずは、<strong>コンソール</strong>そのものについての紹介をしておきましょう。</p>
+<p>通常、Windowsを利用する時に<strong>コンソール</strong>や<strong>コマンド</strong>を使うことは
+殆どありません。
+何かソフトを立ち上げる時にはアイコンをダブルクリックし、
+何かの設定を行う時にはメニューやダイアログを開いて指示に従ったり、
+様々な選択肢の中から選択を行う事が殆どです。</p>
+<p>しかし、Rを使ったデータ分析を行うためには、
+多くの作業をコンソール上でのコマンド入力によって行うことになります。</p>
+<p>RStudioの左側区画がコンソールペインであることは紹介しました。
+このコンソールには
+<strong>プロンプト</strong>と呼ばれる文字入力を受け付ける場所があります。
+そして、このプロンプトにコマンド文字列を入力して、
+エンターキーを押すことで、Rに命令を実行させることが出来ます。</p>
+<p>あらためて、コンソールの実物を見ながら、
+最低限覚えておくべき用語の整理をしておきます。</p>
+<div class="figure" style="text-align: center"><span id="fig:console"></span>
+<img src="images/rpi/console001.png" alt="コンソールの基本" width="90%" />
+<p class="caption">
+Figure 4.12: コンソールの基本
+</p>
+</div>
+<div id="section-26" class="section level4 unnumbered">
+<h4>コンソール</h4>
+<p>コンソールはRStuidoの画面の左側にあります。
+RStudioを使っている内に左側の画面が上下２分割されることがありますが、
+その場合には下側にコンソール画面があります。
+また、コンソール画面の上部に小さくConsoleと書かれている部分があるので、
+そこを見れば、ここがコンソール画面であることを思い出せます。
+これからの作業は、ここにコマンドを入力して行う事になります。</p>
+</div>
+<div id="section-27" class="section level4 unnumbered">
+<h4>プロンプト</h4>
+<p>コンソール画面左端にある「&gt;」の様な形をしたものをプロンプトと言います。
+Rにコマンドを入力する時には、このプロンプトの右側にコマンドを書き込み、
+最後にリターンキーを押すことで、そのコマンドを実行することが出来ます。</p>
+<p>このプロンプトは、
+「コマンドの入力を受け付けています」という意味を持っています。</p>
+<p>コマンドを実行して処理をしている最中には、このプロンプトは表示されません。
+普段は、あっというまに処理が終わるので、
+いつでもプロンプトが表示されているように見えますが、
+時間のかかる処理をしている時には、
+なかなかプロンプトが表示され無い事もあります。
+つまり、コンソールにプロンプトが無い時は、前のコマンドの処理中なので、
+次のコマンドを入力するためには、前のコマンドの処理が終わり、
+プロンプトが表示されるのを待つ必要があります。</p>
+</div>
+<div id="section-28" class="section level4 unnumbered">
+<h4>カーソル</h4>
+<p>プロンプトの横に縦棒「|」が、点滅しているかもしれません。
+これがカーソルです。
+プロンプトへの入力は、リターンキーが押されるまで実行されません。
+コンソールからのコマンド入力では、通常、長いコマンドを打ち込む時、
+カーソルキーを使ってカーソルを自由に動かし、
+行内のあちこちを編集しながら入力して行きます。</p>
+<p>まずは、これらの単語を今ここで覚えてしまいましょう。
+そうすれば、「解説等でどこの何の話をしているのかがわからない」ということがなくなります。</p>
+</div>
+</div>
+<div id="devtools" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> devtoolsパッケージが必須</h3>
+<p>GitHub上のパッケージをインストールするためのコマンドは、
+<strong>devtoolsパッケージ</strong>に入っています。
+devtoolsパッケージは、CRANに登録されいるパッケージなので、
+先の手順でdevtoolsパッケージをインストールしておきましょう。
+devtoolsパッケージがインストールされていないと、
+GitHubで公開されているパッケージのインストールが出来ません。</p>
+</div>
+<div id="reti" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> retiパッケージのインストール</h3>
+<p>筆者が所属する大阪府不動産鑑定士協会不動産取引価格情報活用小委員会では、
+国土交通省が公開している不動産取引価格情報のデータを
+Rで扱いやすくするためのパッケージとして、
+<a href="https://github.com/rea-osaka/reti">retiパッケージ</a>
+(<strong>R</strong>eal <strong>E</strong>state <strong>T</strong>ransaction-price <strong>I</strong>nfomation data)を
+GitHub上で開発して公開しています。</p>
+<p>そこで、ここでは、GitHub上のパッケージのインストールの例として、
+このretiパッケージのインストールを行います。</p>
+<p>GitHub上のパッケージをインストールするためには、
+コンソールのプロンプトにコマンドを打ち込んで実行します。
+RStudioの左側のコンソールペインにあるプロンプトに、
+次のコマンドをキーボードから入力してください。</p>
+<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;rea-osaka/reti&quot;</span>)</code></pre>
+<p>入力が出来たらEnterキーを押して、入力したコマンドを実行します。</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="04_installation_of_RStudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="06_check_before_installation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
