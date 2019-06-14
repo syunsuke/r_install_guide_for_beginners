@@ -1,28 +1,28 @@
 # RStudioが上手く起動しない時の対策 
 
-```{r white_rstudio_b, echo=FALSE, out.width="100%"}
+```{r whiterstudiob, echo=FALSE, out.width="95%", fig.cap="真っ白なRStudio"}
 knitr::include_graphics("images/rpi/white_rstudio.png")
 ```
 
 RStudioを立ち上げた時に、いつまでたっても真っ白なままのWindowで、
-上手くRStudioが起動しない場合があります。
+上手くRStudioが起動しない場合があります。（図\@ref(fig:whiterstudiob)）
 
-また、次のようなダイアログが出て、RStudioが起動しないこともあります。
+また、図\@ref(fig:errordaialog001)や図\@ref(fig:errordaialog002)ようなダイアログが出て、RStudioが起動しないこともあります。
 
 
-```{r error_daialog001, echo=FALSE, out.width="100%"}
+```{r errordaialog001, echo=FALSE, out.width="70%", fig.cap="Rのエラーダイアログ"}
 knitr::include_graphics("images/makeacc/e_dialog001.png")
 ```
 
-または、
 
-```{r error_daialog002, echo=FALSE, out.width="100%"}
+```{r errordaialog002, echo=FALSE, out.width="70%", fig.cap="RStudioのエラーダイアログ"}
 knitr::include_graphics("images/makeacc/e_dialog002.png")
 ```
 
-更に、起動エラーが出ているRStudioとエラーダイアログ
+RStudioにエラーメッセージが表示され、更にエラーダイアログが出て、
+図\@ref(fig:errordaialog003)の様になっているかもしれません。
 
-```{r error_daialog003, echo=FALSE, out.width="100%"}
+```{r errordaialog003, echo=FALSE, out.width="95%", fig.cap="上手く立ち上がれないRStudio"}
 knitr::include_graphics("images/makeacc/e_dialog003.png")
 ```
 
@@ -39,8 +39,9 @@ RStudioが上手く起動しない場合は、まず、
 
 Windowsのスタートメニューを開き、
 Windowsシステムツールの中にある、**コマンドプロンプト**を立ち上げてください。
+（図\@ref(fig:startmenu)）
 
-```{r start_menu, echo=FALSE, out.width="100%"}
+```{r startmenu, echo=FALSE, out.width="80%", fig.cap="コマンドプロンプトの起動"}
 knitr::include_graphics("images/makeacc/cp_start001.png")
 ```
 
@@ -58,14 +59,14 @@ C:\Users\shunsk>
 そして、このプロンプトに表示されている文字列が
 そのユーザーのホームディレクトリを表しています。
 
-```{r prompt001, echo=FALSE, out.width="100%"}
+```{r prompt001, echo=FALSE, out.width="85%", fig.cap="アルファベットのみのホームディレクトリ名"}
 knitr::include_graphics("images/makeacc/cp_ok.png")
 ```
 
 
 ### ディレクトリ名が半角英数のみの場合 {-}
 
-上記の例では、ホームディレクトリ名に半角英数の文字のみが使われています。
+図\@ref(fig:prompt001)では、ホームディレクトリ名に半角英数の文字のみが使われています。
 このような場合には、特に問題なくRStudioが使える状態です。
 
 
@@ -74,10 +75,11 @@ knitr::include_graphics("images/makeacc/cp_ok.png")
 コマンドプロンプトを立ち上げると、
 次のように日本語が含まれている場合があります。
 
-```{r prompt002, echo=FALSE, out.width="100%"}
+```{r prompt002, echo=FALSE, out.width="85%", fig.cap="日本語文字を含むホームディレクトリ名"}
 knitr::include_graphics("images/makeacc/cp_bad.png")
 ```
 
+図\@ref(fig:prompt002)では、
 プロンプトに示されるホームディレクトリ名に日本語の文字が含まれています。
 
 ```
@@ -142,41 +144,45 @@ Windowsにログインすることも出来ます。
 Windows10で、ユーザーローカルアカウントを作成する方法を紹介します。
 
 まず、スタートメニューを開き、歯車マークをクリックして、Windowsの設定ウインドウを開きましょう。
+（（図\@ref(fig:makeacc001)））
 
-
-```{r make_acc001, echo=FALSE, out.width="100%"}
+```{r makeacc001, echo=FALSE, out.width="90%", fig.cap="スタートメニューから設定ウインドウを開く"}
 knitr::include_graphics("images/makeacc/make_acc001.png")
 ```
 
 Windowsの設定ウインドウが開いたら、**アカウント**という項目をクリックします。
+（（図\@ref(fig:makeacc002)））
 
-```{r make_acc002, echo=FALSE, out.width="100%"}
+```{r makeacc002, echo=FALSE, out.width="90%", fig.cap="Windowsの設定"}
 knitr::include_graphics("images/makeacc/make_acc002.png")
 ```
 
 アカウントの設定画面に切り替わったら、左側にあるメニューの**家族とその他ユーザー**をクリックします。
+（（図\@ref(fig:makeacc003)））
 
-```{r make_acc003, echo=FALSE, out.width="100%"}
+```{r makeacc003, echo=FALSE, out.width="95%", fig.cap="アカウントの設定"}
 knitr::include_graphics("images/makeacc/make_acc003.png")
 ```
 
 家族とその他ユーザーの画面に切り替わったら、他のユーザー項目にある**他のユーザーをこのPCに追加**と書かれている部分をクリックします。
+（（図\@ref(fig:makeacc004)））
 
-```{r make_acc004, echo=FALSE, out.width="100%"}
+```{r makeacc004, echo=FALSE, out.width="95%", fig.cap="その他のユーザーの追加"}
 knitr::include_graphics("images/makeacc/make_acc004.png")
 ```
 
 Microsoftアカウントのダイアログが表示され、「このユーザーはどのようにサインインしますか？」と聞かれます。ここでは、**このユーザーのサイン情報がありません**と書かれている部分をクリックします。
+（（図\@ref(fig:makeacc005)））
 
-```{r make_acc005, echo=FALSE, out.width="100%"}
+```{r makeacc005, echo=FALSE, out.width="95%", fig.cap="アカウントの作成ダイアログ"}
 knitr::include_graphics("images/makeacc/make_acc005.png")
 ```
 
 次に「アカウントの作成」項目に切り替わります。
 ここでは、**Microsoftアカウントを持たないユーザーを追加する**と書かれている部分をクリックします。
+（（図\@ref(fig:makeacc006)））
 
-
-```{r make_acc006, echo=FALSE, out.width="100%"}
+```{r makeacc006, echo=FALSE, out.width="95%", fig.cap="アカウントを持たないユーザーの追加"}
 knitr::include_graphics("images/makeacc/make_acc006.png")
 ```
 
@@ -184,10 +190,10 @@ knitr::include_graphics("images/makeacc/make_acc006.png")
 ここで、「このPCを使うのはだれですか？」と聞かれている下のフォームに、
 好きなユーザー名を入力します。
 ここで入力するユーザー名は、**必ず、アルファベットのみ**の
-文字にしてください。
+文字にしてください。（（図\@ref(fig:makeacc007)））
 この名前が、ホームディレクトリの名前になります。
 
-```{r make_acc007, echo=FALSE, out.width="100%"}
+```{r makeacc007, echo=FALSE, out.width="95%", fig.cap="アカウントの作成"}
 knitr::include_graphics("images/makeacc/make_acc007.png")
 ```
 
@@ -248,37 +254,37 @@ Windows10の場合、マイクロソフトのWindowsのサポートページを�
 まず、Windowsを立ち上げたときのログイン画面をみてみましょう。
 
 
-```{r change_acc, echo=FALSE, out.width="100%"}
+```{r changeacc, echo=FALSE, out.width="95%", fig.cap="ログイン画面でのアカウントの選択"}
 knitr::include_graphics("images/makeacc/login001.JPG")
 ```
 
 複数アカウントが登録されていると、起動時のWindowsログイン画面の左下に
-アカウントのリストが表示されます。
+アカウントのリストが表示されます。（（図\@ref(fig:changeacc)））
 ここで、好きなアカウントを選択すれば、そのアカウントでログインできます。
 
 ### スタートボタンからの切り替え
 
 右下のWindowsボタンを押し、スタートメニューを開きます。
 
-```{r startmenu001, echo=FALSE, out.width="100%"}
+```{r startmenu001, echo=FALSE, out.width="90%", fig.cap="スタートメニューのアカウント管理アイコン"}
 knitr::include_graphics("images/makeacc/startmenu001.png")
 ```
 
 スタートメニューの左端に縦にアイコンが並んでおり、
 その一番上に、ヒト型のアイコンが見つかるので、
-そこをクリックしてください。
+そこをクリックしてください。（（図\@ref(fig:startmenu001)））
 アカウントに写真を登録してある場合、
 ヒト型アイコンの代わりその写真が表示されている場合もあります。
 
 アイコンをクリックすると、
 アカウントを切り替えるためのメニューが表示されます。
 
-```{r startmenu002, echo=FALSE, out.width="100%"}
+```{r startmenu002, echo=FALSE, out.width="90%", fig.cap="アカウントの選択"}
 knitr::include_graphics("images/makeacc/startmenu002.png")
 ```
 
 下側にアカウントの一覧が表示されるので、
-切り替えたいアカウントをクリックします。
+切り替えたいアカウントをクリックします。（（図\@ref(fig:startmenu002)））
 
 Windowsには、複数のアカウントで同時にログインできます。
 アカウントを切り替えた場合、
