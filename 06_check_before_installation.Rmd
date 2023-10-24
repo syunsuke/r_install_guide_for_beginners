@@ -255,7 +255,7 @@ Windows10の場合、マイクロソフトのWindowsのサポートページを�
 
 
 ```{r changeacc, echo=FALSE, out.width="95%", fig.cap="ログイン画面でのアカウントの選択"}
-knitr::include_graphics("images/makeacc/login001.JPG")
+knitr::include_graphics("images/makeacc/login001.jpg")
 ```
 
 複数アカウントが登録されていると、起動時のWindowsログイン画面の左下に

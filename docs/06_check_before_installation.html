@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 RStudioが上手く起動しない時の対策 | 初心者向けRのインストールガイド</title>
-  <meta name="description" content="5 RStudioが上手く起動しない時の対策 | 初心者向けRのインストールガイド">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="5 RStudioが上手く起動しない時の対策 | 初心者向けRのインストールガイド" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 RStudioが上手く起動しない時の対策 | 初心者向けRのインストールガイド" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -22,25 +20,27 @@
   
   
 
-<meta name="author" content="Syunsuke Fukuda">
+<meta name="author" content="Syunsuke Fukuda" />
 
 
-<meta name="date" content="2019-06-14">
+<meta name="date" content="2023-10-25" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="05_installation_of_packages.html">
+<link rel="prev" href="05_installation_of_packages.html"/>
 
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,29 +48,34 @@
 
 
 
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,15 +84,15 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -100,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -112,6 +117,11 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
 </head>
@@ -130,65 +140,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a></li>
-<li class="chapter" data-level="2" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html"><i class="fa fa-check"></i><b>2</b> Rのインストール</a><ul>
+<li class="chapter" data-level="2" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html"><i class="fa fa-check"></i><b>2</b> Rのインストール</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#the-r-project-for-statistical-computing"><i class="fa fa-check"></i><b>2.1</b> The R Project for Statistical Computing</a></li>
 <li class="chapter" data-level="2.2" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#cran"><i class="fa fa-check"></i><b>2.2</b> CRAN</a></li>
-<li class="chapter" data-level="2.3" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-1"><i class="fa fa-check"></i><b>2.3</b> セットアップファイルのダウンロード</a></li>
-<li class="chapter" data-level="2.4" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-2"><i class="fa fa-check"></i><b>2.4</b> インストール</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-3"><i class="fa fa-check"></i><b>2.4.1</b> ライセンスへの同意</a></li>
-<li class="chapter" data-level="2.4.2" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-4"><i class="fa fa-check"></i><b>2.4.2</b> インストール先の指定</a></li>
-<li class="chapter" data-level="2.4.3" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-5"><i class="fa fa-check"></i><b>2.4.3</b> コンポーネントの選択</a></li>
-<li class="chapter" data-level="2.4.4" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-6"><i class="fa fa-check"></i><b>2.4.4</b> 起動時オプション</a></li>
-<li class="chapter" data-level="2.4.5" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-7"><i class="fa fa-check"></i><b>2.4.5</b> プログラムグループの指定</a></li>
-<li class="chapter" data-level="2.4.6" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-8"><i class="fa fa-check"></i><b>2.4.6</b> 追加タスクの選択</a></li>
-<li class="chapter" data-level="2.4.7" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-9"><i class="fa fa-check"></i><b>2.4.7</b> インストールがはじまります</a></li>
-<li class="chapter" data-level="2.4.8" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#section-10"><i class="fa fa-check"></i><b>2.4.8</b> インストールが完了します</a></li>
+<li class="chapter" data-level="2.3" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#セットアップファイルのダウンロード"><i class="fa fa-check"></i><b>2.3</b> セットアップファイルのダウンロード</a></li>
+<li class="chapter" data-level="2.4" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#インストール"><i class="fa fa-check"></i><b>2.4</b> インストール</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#ライセンスへの同意"><i class="fa fa-check"></i><b>2.4.1</b> ライセンスへの同意</a></li>
+<li class="chapter" data-level="2.4.2" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#インストール先の指定"><i class="fa fa-check"></i><b>2.4.2</b> インストール先の指定</a></li>
+<li class="chapter" data-level="2.4.3" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#コンポーネントの選択"><i class="fa fa-check"></i><b>2.4.3</b> コンポーネントの選択</a></li>
+<li class="chapter" data-level="2.4.4" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#起動時オプション"><i class="fa fa-check"></i><b>2.4.4</b> 起動時オプション</a></li>
+<li class="chapter" data-level="2.4.5" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#プログラムグループの指定"><i class="fa fa-check"></i><b>2.4.5</b> プログラムグループの指定</a></li>
+<li class="chapter" data-level="2.4.6" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#追加タスクの選択"><i class="fa fa-check"></i><b>2.4.6</b> 追加タスクの選択</a></li>
+<li class="chapter" data-level="2.4.7" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#インストールがはじまります"><i class="fa fa-check"></i><b>2.4.7</b> インストールがはじまります</a></li>
+<li class="chapter" data-level="2.4.8" data-path="03_installation_of_R.html"><a href="03_installation_of_R.html#インストールが完了します"><i class="fa fa-check"></i><b>2.4.8</b> インストールが完了します</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html"><i class="fa fa-check"></i><b>3</b> RStudioのインストール</a><ul>
-<li class="chapter" data-level="3.1" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#rstudio-1"><i class="fa fa-check"></i><b>3.1</b> RStudio</a></li>
-<li class="chapter" data-level="3.2" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-11"><i class="fa fa-check"></i><b>3.2</b> セットアップファイルのダウンロード</a></li>
-<li class="chapter" data-level="3.3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-12"><i class="fa fa-check"></i><b>3.3</b> インストール</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-13"><i class="fa fa-check"></i><b>3.3.1</b> セットアップのスタート</a></li>
-<li class="chapter" data-level="3.3.2" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-14"><i class="fa fa-check"></i><b>3.3.2</b> インストール先の指定</a></li>
-<li class="chapter" data-level="3.3.3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-15"><i class="fa fa-check"></i><b>3.3.3</b> スタートメニューフォルダの選択</a></li>
-<li class="chapter" data-level="3.3.4" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-16"><i class="fa fa-check"></i><b>3.3.4</b> インストールがはじまります。</a></li>
-<li class="chapter" data-level="3.3.5" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#section-17"><i class="fa fa-check"></i><b>3.3.5</b> インストールが完了します。</a></li>
+<li class="chapter" data-level="3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html"><i class="fa fa-check"></i><b>3</b> RStudioのインストール</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#rstudio"><i class="fa fa-check"></i><b>3.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.2" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#セットアップファイルのダウンロード-1"><i class="fa fa-check"></i><b>3.2</b> セットアップファイルのダウンロード</a></li>
+<li class="chapter" data-level="3.3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#インストール-1"><i class="fa fa-check"></i><b>3.3</b> インストール</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#セットアップのスタート"><i class="fa fa-check"></i><b>3.3.1</b> セットアップのスタート</a></li>
+<li class="chapter" data-level="3.3.2" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#インストール先の指定-1"><i class="fa fa-check"></i><b>3.3.2</b> インストール先の指定</a></li>
+<li class="chapter" data-level="3.3.3" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#スタートメニューフォルダの選択"><i class="fa fa-check"></i><b>3.3.3</b> スタートメニューフォルダの選択</a></li>
+<li class="chapter" data-level="3.3.4" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#インストールがはじまります-1"><i class="fa fa-check"></i><b>3.3.4</b> インストールがはじまります。</a></li>
+<li class="chapter" data-level="3.3.5" data-path="04_installation_of_RStudio.html"><a href="04_installation_of_RStudio.html#インストールが完了します-1"><i class="fa fa-check"></i><b>3.3.5</b> インストールが完了します。</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html"><i class="fa fa-check"></i><b>4</b> RStudioでパッケージをインストールする</a><ul>
-<li class="chapter" data-level="4.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstudio-3"><i class="fa fa-check"></i><b>4.1</b> 初めてのRStudio</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstuido"><i class="fa fa-check"></i><b>4.1.1</b> RStuidoの起動</a></li>
-<li class="chapter" data-level="4.1.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstudio-4"><i class="fa fa-check"></i><b>4.1.2</b> RStudioは区画に分かれている</a></li>
-<li class="chapter" data-level="4.1.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-18"><i class="fa fa-check"></i><b>4.1.3</b> 各区画の内容はタブで切り変えられる</a></li>
-<li class="chapter" data-level="4.1.4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstudio-6"><i class="fa fa-check"></i><b>4.1.4</b> RStudioの大まかな配置</a></li>
+<li class="chapter" data-level="4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html"><i class="fa fa-check"></i><b>4</b> RStudioでパッケージをインストールする</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#初めてのrstudio"><i class="fa fa-check"></i><b>4.1</b> 初めてのRStudio</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstuidoの起動"><i class="fa fa-check"></i><b>4.1.1</b> RStuidoの起動</a></li>
+<li class="chapter" data-level="4.1.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstudioは区画に分かれている"><i class="fa fa-check"></i><b>4.1.2</b> RStudioは区画に分かれている</a></li>
+<li class="chapter" data-level="4.1.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#各区画の内容はタブで切り変えられる"><i class="fa fa-check"></i><b>4.1.3</b> 各区画の内容はタブで切り変えられる</a></li>
+<li class="chapter" data-level="4.1.4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#rstudioの大まかな配置"><i class="fa fa-check"></i><b>4.1.4</b> RStudioの大まかな配置</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-22"><i class="fa fa-check"></i><b>4.2</b> パッケージのインストール</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#packages"><i class="fa fa-check"></i><b>4.2.1</b> Packagesペイン</a></li>
-<li class="chapter" data-level="4.2.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-23"><i class="fa fa-check"></i><b>4.2.2</b> インストール用ダイアログ</a></li>
-<li class="chapter" data-level="4.2.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#console"><i class="fa fa-check"></i><b>4.2.3</b> 左区画のConsoleペインでインストール進捗状況を確認</a></li>
-<li class="chapter" data-level="4.2.4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-24"><i class="fa fa-check"></i><b>4.2.4</b> その他よく使うパッケージのインストール</a></li>
+<li class="chapter" data-level="4.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#パッケージのインストール"><i class="fa fa-check"></i><b>4.2</b> パッケージのインストール</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#packagesペイン"><i class="fa fa-check"></i><b>4.2.1</b> Packagesペイン</a></li>
+<li class="chapter" data-level="4.2.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#インストール用ダイアログ"><i class="fa fa-check"></i><b>4.2.2</b> インストール用ダイアログ</a></li>
+<li class="chapter" data-level="4.2.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#左区画のconsoleペインでインストール進捗状況を確認"><i class="fa fa-check"></i><b>4.2.3</b> 左区画のConsoleペインでインストール進捗状況を確認</a></li>
+<li class="chapter" data-level="4.2.4" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#その他よく使うパッケージのインストール"><i class="fa fa-check"></i><b>4.2.4</b> その他よく使うパッケージのインストール</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#github"><i class="fa fa-check"></i><b>4.3</b> GitHubで公開されているパッケージのインストール</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#section-25"><i class="fa fa-check"></i><b>4.3.1</b> コンソールの基礎的知識</a></li>
-<li class="chapter" data-level="4.3.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#devtools"><i class="fa fa-check"></i><b>4.3.2</b> devtoolsパッケージが必須</a></li>
-<li class="chapter" data-level="4.3.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#reti"><i class="fa fa-check"></i><b>4.3.3</b> retiパッケージのインストール</a></li>
+<li class="chapter" data-level="4.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#githubで公開されているパッケージのインストール"><i class="fa fa-check"></i><b>4.3</b> GitHubで公開されているパッケージのインストール</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#コンソールの基礎的知識"><i class="fa fa-check"></i><b>4.3.1</b> コンソールの基礎的知識</a></li>
+<li class="chapter" data-level="4.3.2" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#devtoolsパッケージが必須"><i class="fa fa-check"></i><b>4.3.2</b> devtoolsパッケージが必須</a></li>
+<li class="chapter" data-level="4.3.3" data-path="05_installation_of_packages.html"><a href="05_installation_of_packages.html#retiパッケージのインストール"><i class="fa fa-check"></i><b>4.3.3</b> retiパッケージのインストール</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html"><i class="fa fa-check"></i><b>5</b> RStudioが上手く起動しない時の対策</a><ul>
-<li class="chapter" data-level="5.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-29"><i class="fa fa-check"></i><b>5.1</b> ホームディレクトリ名のチェックの方法</a><ul>
-<li class="chapter" data-level="" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-30"><i class="fa fa-check"></i>ディレクトリ名が半角英数のみの場合</a></li>
-<li class="chapter" data-level="" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-31"><i class="fa fa-check"></i>ディレクトリ名に日本語が含まれる場合</a></li>
+<li class="chapter" data-level="5" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html"><i class="fa fa-check"></i><b>5</b> RStudioが上手く起動しない時の対策</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#ホームディレクトリ名のチェックの方法"><i class="fa fa-check"></i><b>5.1</b> ホームディレクトリ名のチェックの方法</a>
+<ul>
+<li class="chapter" data-level="" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#ディレクトリ名が半角英数のみの場合"><i class="fa fa-check"></i>ディレクトリ名が半角英数のみの場合</a></li>
+<li class="chapter" data-level="" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#ディレクトリ名に日本語が含まれる場合"><i class="fa fa-check"></i>ディレクトリ名に日本語が含まれる場合</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-32"><i class="fa fa-check"></i><b>5.2</b> 対策について</a></li>
-<li class="chapter" data-level="5.3" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-33"><i class="fa fa-check"></i><b>5.3</b> 新しいアカウントの作成</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#windows"><i class="fa fa-check"></i><b>5.3.1</b> Windowsのアカウントには２つの種類ある</a></li>
-<li class="chapter" data-level="5.3.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-34"><i class="fa fa-check"></i><b>5.3.2</b> ユーザーローカルアカウントの追加</a></li>
-<li class="chapter" data-level="5.3.3" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-35"><i class="fa fa-check"></i><b>5.3.3</b> 管理者権限について</a></li>
+<li class="chapter" data-level="5.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#対策について"><i class="fa fa-check"></i><b>5.2</b> 対策について</a></li>
+<li class="chapter" data-level="5.3" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#新しいアカウントの作成"><i class="fa fa-check"></i><b>5.3</b> 新しいアカウントの作成</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#windowsのアカウントには２つの種類ある"><i class="fa fa-check"></i><b>5.3.1</b> Windowsのアカウントには２つの種類ある</a></li>
+<li class="chapter" data-level="5.3.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#ユーザーローカルアカウントの追加"><i class="fa fa-check"></i><b>5.3.2</b> ユーザーローカルアカウントの追加</a></li>
+<li class="chapter" data-level="5.3.3" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#管理者権限について"><i class="fa fa-check"></i><b>5.3.3</b> 管理者権限について</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-36"><i class="fa fa-check"></i><b>5.4</b> アカウントの切り替え</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-37"><i class="fa fa-check"></i><b>5.4.1</b> ログイン画面での切り替え</a></li>
-<li class="chapter" data-level="5.4.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#section-38"><i class="fa fa-check"></i><b>5.4.2</b> スタートボタンからの切り替え</a></li>
+<li class="chapter" data-level="5.4" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#アカウントの切り替え"><i class="fa fa-check"></i><b>5.4</b> アカウントの切り替え</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#ログイン画面での切り替え"><i class="fa fa-check"></i><b>5.4.1</b> ログイン画面での切り替え</a></li>
+<li class="chapter" data-level="5.4.2" data-path="06_check_before_installation.html"><a href="06_check_before_installation.html#スタートボタンからの切り替え"><i class="fa fa-check"></i><b>5.4.2</b> スタートボタンからの切り替え</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -211,9 +233,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rstudio-7" class="section level1">
-<h1><span class="header-section-number">5</span> RStudioが上手く起動しない時の対策</h1>
-<div class="figure" style="text-align: center"><span id="fig:whiterstudiob"></span>
+<div id="rstudioが上手く起動しない時の対策" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> RStudioが上手く起動しない時の対策<a href="06_check_before_installation.html#rstudioが上手く起動しない時の対策" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:whiterstudiob"></span>
 <img src="images/rpi/white_rstudio.png" alt="真っ白なRStudio" width="95%" />
 <p class="caption">
 Figure 5.1: 真っ白なRStudio
@@ -222,13 +244,13 @@ Figure 5.1: 真っ白なRStudio
 <p>RStudioを立ち上げた時に、いつまでたっても真っ白なままのWindowで、
 上手くRStudioが起動しない場合があります。（図<a href="06_check_before_installation.html#fig:whiterstudiob">5.1</a>）</p>
 <p>また、図<a href="06_check_before_installation.html#fig:errordaialog001">5.2</a>や図<a href="06_check_before_installation.html#fig:errordaialog002">5.3</a>ようなダイアログが出て、RStudioが起動しないこともあります。</p>
-<div class="figure" style="text-align: center"><span id="fig:errordaialog001"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:errordaialog001"></span>
 <img src="images/makeacc/e_dialog001.png" alt="Rのエラーダイアログ" width="70%" />
 <p class="caption">
 Figure 5.2: Rのエラーダイアログ
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:errordaialog002"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:errordaialog002"></span>
 <img src="images/makeacc/e_dialog002.png" alt="RStudioのエラーダイアログ" width="70%" />
 <p class="caption">
 Figure 5.3: RStudioのエラーダイアログ
@@ -236,7 +258,7 @@ Figure 5.3: RStudioのエラーダイアログ
 </div>
 <p>RStudioにエラーメッセージが表示され、更にエラーダイアログが出て、
 図<a href="06_check_before_installation.html#fig:errordaialog003">5.4</a>の様になっているかもしれません。</p>
-<div class="figure" style="text-align: center"><span id="fig:errordaialog003"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:errordaialog003"></span>
 <img src="images/makeacc/e_dialog003.png" alt="上手く立ち上がれないRStudio" width="95%" />
 <p class="caption">
 Figure 5.4: 上手く立ち上がれないRStudio
@@ -246,12 +268,12 @@ Figure 5.4: 上手く立ち上がれないRStudio
 ホームディレクトリの名前に日本語文字が使われていることが考えられます。</p>
 <p>RStudioが上手く起動しない場合は、まず、
 次の手順でホームディレクトリの名前に日本語文字が使われていないかをチェックしましょう。</p>
-<div id="section-29" class="section level2">
-<h2><span class="header-section-number">5.1</span> ホームディレクトリ名のチェックの方法</h2>
+<div id="ホームディレクトリ名のチェックの方法" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> ホームディレクトリ名のチェックの方法<a href="06_check_before_installation.html#ホームディレクトリ名のチェックの方法" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Windowsのスタートメニューを開き、
 Windowsシステムツールの中にある、<strong>コマンドプロンプト</strong>を立ち上げてください。
 （図<a href="06_check_before_installation.html#fig:startmenu">5.5</a>）</p>
-<div class="figure" style="text-align: center"><span id="fig:startmenu"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:startmenu"></span>
 <img src="images/makeacc/cp_start001.png" alt="コマンドプロンプトの起動" width="80%" />
 <p class="caption">
 Figure 5.5: コマンドプロンプトの起動
@@ -264,22 +286,22 @@ Figure 5.5: コマンドプロンプトの起動
 チカチカと明滅しているカーソル部分に、キーボードを使ってコマンドを書き込むことが出来ます。</p>
 <p>そして、このプロンプトに表示されている文字列が
 そのユーザーのホームディレクトリを表しています。</p>
-<div class="figure" style="text-align: center"><span id="fig:prompt001"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:prompt001"></span>
 <img src="images/makeacc/cp_ok.png" alt="アルファベットのみのホームディレクトリ名" width="85%" />
 <p class="caption">
 Figure 5.6: アルファベットのみのホームディレクトリ名
 </p>
 </div>
-<div id="section-30" class="section level3 unnumbered">
-<h3>ディレクトリ名が半角英数のみの場合</h3>
+<div id="ディレクトリ名が半角英数のみの場合" class="section level3 unnumbered hasAnchor">
+<h3>ディレクトリ名が半角英数のみの場合<a href="06_check_before_installation.html#ディレクトリ名が半角英数のみの場合" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>図<a href="06_check_before_installation.html#fig:prompt001">5.6</a>では、ホームディレクトリ名に半角英数の文字のみが使われています。
 このような場合には、特に問題なくRStudioが使える状態です。</p>
 </div>
-<div id="section-31" class="section level3 unnumbered">
-<h3>ディレクトリ名に日本語が含まれる場合</h3>
+<div id="ディレクトリ名に日本語が含まれる場合" class="section level3 unnumbered hasAnchor">
+<h3>ディレクトリ名に日本語が含まれる場合<a href="06_check_before_installation.html#ディレクトリ名に日本語が含まれる場合" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>コマンドプロンプトを立ち上げると、
 次のように日本語が含まれている場合があります。</p>
-<div class="figure" style="text-align: center"><span id="fig:prompt002"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:prompt002"></span>
 <img src="images/makeacc/cp_bad.png" alt="日本語文字を含むホームディレクトリ名" width="85%" />
 <p class="caption">
 Figure 5.7: 日本語文字を含むホームディレクトリ名
@@ -295,8 +317,8 @@ Figure 5.7: 日本語文字を含むホームディレクトリ名
 不具合なくRStudioを使うことが出来るようになります。</p>
 </div>
 </div>
-<div id="section-32" class="section level2">
-<h2><span class="header-section-number">5.2</span> 対策について</h2>
+<div id="対策について" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> 対策について<a href="06_check_before_installation.html#対策について" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>ホームディレクトリに日本語名が使われている場合、
 お勧めする対策は、新たに別のアカウントを作成することです。</p>
 <p>ホームディレクト名は、Windowsのアカウントを作成する際に
@@ -306,12 +328,12 @@ Figure 5.7: 日本語文字を含むホームディレクトリ名
 日本語を含まないホームディレクトリ名を持つ
 アカウントを作成することが出来ます。</p>
 </div>
-<div id="section-33" class="section level2">
-<h2><span class="header-section-number">5.3</span> 新しいアカウントの作成</h2>
+<div id="新しいアカウントの作成" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> 新しいアカウントの作成<a href="06_check_before_installation.html#新しいアカウントの作成" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>ここで、新しいWindowsのアカウントを追加する際に必要な知識として、
 Windowsのアカウントには２つの種類があることを紹介しておきます。</p>
-<div id="windows" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> Windowsのアカウントには２つの種類ある</h3>
+<div id="windowsのアカウントには２つの種類ある" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Windowsのアカウントには２つの種類ある<a href="06_check_before_installation.html#windowsのアカウントには２つの種類ある" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>実は、Windowsのアカウントには次の二つの種類があります。</p>
 <ul>
 <li>マイクロソフトアカウントと連携したアカウント</li>
@@ -335,12 +357,12 @@ Windowsにログインすることも出来ます。
 確実にホームディレクトリ名もアルファベットのみのものに出来るので
 このローカルユーザーアカウントの方の作成の方法を紹介します。</p>
 </div>
-<div id="section-34" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> ユーザーローカルアカウントの追加</h3>
+<div id="ユーザーローカルアカウントの追加" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> ユーザーローカルアカウントの追加<a href="06_check_before_installation.html#ユーザーローカルアカウントの追加" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Windows10で、ユーザーローカルアカウントを作成する方法を紹介します。</p>
 <p>まず、スタートメニューを開き、歯車マークをクリックして、Windowsの設定ウインドウを開きましょう。
 （（図<a href="06_check_before_installation.html#fig:makeacc001">5.8</a>））</p>
-<div class="figure" style="text-align: center"><span id="fig:makeacc001"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:makeacc001"></span>
 <img src="images/makeacc/make_acc001.png" alt="スタートメニューから設定ウインドウを開く" width="90%" />
 <p class="caption">
 Figure 5.8: スタートメニューから設定ウインドウを開く
@@ -348,7 +370,7 @@ Figure 5.8: スタートメニューから設定ウインドウを開く
 </div>
 <p>Windowsの設定ウインドウが開いたら、<strong>アカウント</strong>という項目をクリックします。
 （（図<a href="06_check_before_installation.html#fig:makeacc002">5.9</a>））</p>
-<div class="figure" style="text-align: center"><span id="fig:makeacc002"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:makeacc002"></span>
 <img src="images/makeacc/make_acc002.png" alt="Windowsの設定" width="90%" />
 <p class="caption">
 Figure 5.9: Windowsの設定
@@ -356,7 +378,7 @@ Figure 5.9: Windowsの設定
 </div>
 <p>アカウントの設定画面に切り替わったら、左側にあるメニューの<strong>家族とその他ユーザー</strong>をクリックします。
 （（図<a href="06_check_before_installation.html#fig:makeacc003">5.10</a>））</p>
-<div class="figure" style="text-align: center"><span id="fig:makeacc003"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:makeacc003"></span>
 <img src="images/makeacc/make_acc003.png" alt="アカウントの設定" width="95%" />
 <p class="caption">
 Figure 5.10: アカウントの設定
@@ -364,7 +386,7 @@ Figure 5.10: アカウントの設定
 </div>
 <p>家族とその他ユーザーの画面に切り替わったら、他のユーザー項目にある<strong>他のユーザーをこのPCに追加</strong>と書かれている部分をクリックします。
 （（図<a href="06_check_before_installation.html#fig:makeacc004">5.11</a>））</p>
-<div class="figure" style="text-align: center"><span id="fig:makeacc004"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:makeacc004"></span>
 <img src="images/makeacc/make_acc004.png" alt="その他のユーザーの追加" width="95%" />
 <p class="caption">
 Figure 5.11: その他のユーザーの追加
@@ -372,7 +394,7 @@ Figure 5.11: その他のユーザーの追加
 </div>
 <p>Microsoftアカウントのダイアログが表示され、「このユーザーはどのようにサインインしますか？」と聞かれます。ここでは、<strong>このユーザーのサイン情報がありません</strong>と書かれている部分をクリックします。
 （（図<a href="06_check_before_installation.html#fig:makeacc005">5.12</a>））</p>
-<div class="figure" style="text-align: center"><span id="fig:makeacc005"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:makeacc005"></span>
 <img src="images/makeacc/make_acc005.png" alt="アカウントの作成ダイアログ" width="95%" />
 <p class="caption">
 Figure 5.12: アカウントの作成ダイアログ
@@ -381,7 +403,7 @@ Figure 5.12: アカウントの作成ダイアログ
 <p>次に「アカウントの作成」項目に切り替わります。
 ここでは、<strong>Microsoftアカウントを持たないユーザーを追加する</strong>と書かれている部分をクリックします。
 （（図<a href="06_check_before_installation.html#fig:makeacc006">5.13</a>））</p>
-<div class="figure" style="text-align: center"><span id="fig:makeacc006"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:makeacc006"></span>
 <img src="images/makeacc/make_acc006.png" alt="アカウントを持たないユーザーの追加" width="95%" />
 <p class="caption">
 Figure 5.13: アカウントを持たないユーザーの追加
@@ -393,7 +415,7 @@ Figure 5.13: アカウントを持たないユーザーの追加
 ここで入力するユーザー名は、<strong>必ず、アルファベットのみ</strong>の
 文字にしてください。（（図<a href="06_check_before_installation.html#fig:makeacc007">5.14</a>））
 この名前が、ホームディレクトリの名前になります。</p>
-<div class="figure" style="text-align: center"><span id="fig:makeacc007"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:makeacc007"></span>
 <img src="images/makeacc/make_acc007.png" alt="アカウントの作成" width="95%" />
 <p class="caption">
 Figure 5.14: アカウントの作成
@@ -409,8 +431,8 @@ Microcoftアカウントを使わずにサインインする &gt; ローカル�
 周りのパソコンが得意な人にも相談してみましょう。</p>
 <p>いずれにせよ、新しく作るアカウント名は、必ず、<strong>アルファベット文字のみのアカウント名</strong>にすることを忘れてはいけません。</p>
 </div>
-<div id="section-35" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> 管理者権限について</h3>
+<div id="管理者権限について" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> 管理者権限について<a href="06_check_before_installation.html#管理者権限について" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>管理者権限を持つユーザー（アカウント）のみが、
 システムにソフト等をインストールすることが出来ます。</p>
 <p>Windowsを買った時に使い始める一番最初のユーザーは
@@ -433,13 +455,13 @@ Microcoftアカウントを使わずにサインインする &gt; ローカル�
 <p><a href="https://support.microsoft.com/ja-jp/help/4026923/windows-10-create-a-local-user-or-administrator-account">Windows 10 でローカルのユーザー アカウントまたは管理者アカウントを作成する</a></p>
 </div>
 </div>
-<div id="section-36" class="section level2">
-<h2><span class="header-section-number">5.4</span> アカウントの切り替え</h2>
+<div id="アカウントの切り替え" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> アカウントの切り替え<a href="06_check_before_installation.html#アカウントの切り替え" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>アカウントが出来たら、アカウントを切り替えてみましょう。</p>
-<div id="section-37" class="section level3">
-<h3><span class="header-section-number">5.4.1</span> ログイン画面での切り替え</h3>
+<div id="ログイン画面での切り替え" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> ログイン画面での切り替え<a href="06_check_before_installation.html#ログイン画面での切り替え" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>まず、Windowsを立ち上げたときのログイン画面をみてみましょう。</p>
-<div class="figure" style="text-align: center"><span id="fig:changeacc"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:changeacc"></span>
 <img src="images/makeacc/login001.jpg" alt="ログイン画面でのアカウントの選択" width="95%" />
 <p class="caption">
 Figure 5.15: ログイン画面でのアカウントの選択
@@ -449,10 +471,10 @@ Figure 5.15: ログイン画面でのアカウントの選択
 アカウントのリストが表示されます。（（図<a href="06_check_before_installation.html#fig:changeacc">5.15</a>））
 ここで、好きなアカウントを選択すれば、そのアカウントでログインできます。</p>
 </div>
-<div id="section-38" class="section level3">
-<h3><span class="header-section-number">5.4.2</span> スタートボタンからの切り替え</h3>
+<div id="スタートボタンからの切り替え" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> スタートボタンからの切り替え<a href="06_check_before_installation.html#スタートボタンからの切り替え" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>右下のWindowsボタンを押し、スタートメニューを開きます。</p>
-<div class="figure" style="text-align: center"><span id="fig:startmenu001"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:startmenu001"></span>
 <img src="images/makeacc/startmenu001.png" alt="スタートメニューのアカウント管理アイコン" width="90%" />
 <p class="caption">
 Figure 5.16: スタートメニューのアカウント管理アイコン
@@ -465,7 +487,7 @@ Figure 5.16: スタートメニューのアカウント管理アイコン
 ヒト型アイコンの代わりその写真が表示されている場合もあります。</p>
 <p>アイコンをクリックすると、
 アカウントを切り替えるためのメニューが表示されます。</p>
-<div class="figure" style="text-align: center"><span id="fig:startmenu002"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:startmenu002"></span>
 <img src="images/makeacc/startmenu002.png" alt="アカウントの選択" width="90%" />
 <p class="caption">
 Figure 5.17: アカウントの選択
@@ -495,12 +517,13 @@ Figure 5.17: アカウントの選択
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -508,12 +531,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -528,7 +551,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

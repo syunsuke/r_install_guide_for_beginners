@@ -4,12 +4,18 @@ Rの統合開発環境（IDE）であるRStudioのインストールを紹介し
 
 ## RStudio
 
-[RStudio](https://www.rstudio.com/)のWebページでは、
+RStudioというIDEは、もともと、RStudioという会社で作られていて、
+Webページの名称もRStudioでした。
+しかし、今は社名が「[posit](https://posit.co)」に変更になり、
+RStudioと言えば、IDEのことのみを指すようになっています。
+
+
+さて、[posit](https://posit.co)のWebページでは、
 IDEだけでなく
 Rで人気のパッケージの開発も行われており、
 それらの情報も、このWebページから辿ることが出来ます。
 
-```{r rstudiotop001, echo=FALSE, out.width="80%", fig.cap="https://www.rstudio.com/"}
+```{r rstudiotop001, echo=FALSE, out.width="80%", fig.cap="https://posit.co"}
 knitr::include_graphics("images/rstdi/rstudiotop001.png")
 ```
 
@@ -17,28 +23,40 @@ knitr::include_graphics("images/rstdi/rstudiotop001.png")
 
 ## セットアップファイルのダウンロード
 
-トップページを少し下へスクロールするとRStudioのダウンロードリンクがある（図\@ref(fig:rstudiotop002)）ので、
-それをクリックしてダウンロードページへ行きます。
 
-```{r rstudiotop002, echo=FALSE, out.width="80%", fig.cap="ダウンロードページへのリンク"}
-knitr::include_graphics("images/rstdi/rstudiotop002.png")
+まずは、トップページの右上にある「DOWNLOAD RSTUDIO」と書かれたボタンをクリックしましょう。
+
+```{r rstudiotop00101, echo=FALSE, out.width="80%", fig.cap="TOPページのDOWNLOADボタン"}
+knitr::include_graphics("images/rstdi/rstudiotop001_1.png")
 ```
 
 
-切り替わったページ（図\@ref(fig:rstudiodl001)）の初めの方は、RStudioのライセンス形態についての紹介がされているので下の方へスクロールしましょう。
+そうすると、RStudio Desktopのダウンロードページになります。
 
-```{r rstudiodl001, echo=FALSE, out.width="80%", fig.cap="ダウンロードページ"}
-knitr::include_graphics("images/rstdi/rstudiodl001.png")
+```{r rstudiotop00102, echo=FALSE, out.width="80%", fig.cap="RStudioのDLページ"}
+knitr::include_graphics("images/rstdi/rstudiotop001_2.png")
 ```
 
-下の方で**Installers for Supported Platforms**という項目がみつかります。
+このページにある「DOWNLOAD RSTUDIO」ボタンをクリックしましょう。
+RStudioには、「デスクトップ」と「サーバー」の２種類がありますが、
+このボタンをクリックして「RStudioデスクトップ」のダウンロードページへ行きます。
 
-そこに各ＯＳ毎のインストールファイルへのリンクがあります。(図\@ref(fig:rstudiodl002))
-Windows用のインストーラーリンクをクリックして、インストーラーを保存しましょう。
-
-```{r rstudiodl002, echo=FALSE, out.width="80%", fig.cap="Windows用インストーラーのダウンロード"}
-knitr::include_graphics("images/rstdi/rstudiodl002.png")
+```{r rstudiotop00103, echo=FALSE, out.width="80%", fig.cap="RStudio DesktopのDLページ"}
+knitr::include_graphics("images/rstdi/rstudiotop001_3.png")
 ```
+
+このページに来たら、少し下へスクロールして、
+Windows10/11用のインストーラーファイルがダウンロードできる場所を見つけましょう。
+
+
+```{r rstudiotop00104, echo=FALSE, out.width="80%", fig.cap="Windowsのインストーラーファイル"}
+knitr::include_graphics("images/rstdi/rstudiotop001_4.png")
+```
+
+
+Windows用のインストーラーファイルは「RSTUDIO-20xx.xx.x-xxx.EXE」という風に、
+拡張子が **EXE** になっています。ファイル名部分をクリックして
+インストーラーファイルをダウンロードしましょう。
 
 
 ## インストール
@@ -47,7 +65,7 @@ knitr::include_graphics("images/rstdi/rstudiodl002.png")
 ダウンロードされたセットアップファイル「RStudio-1.2.1335.exe」をダブルクリックします。
 （ファイル名の数字はバージョンで時期により異なります）
 
-```{r rstudiosetupfile, echo=FALSE, fig.width=1}
+```{r rstudiosetupfile, echo=FALSE}
 knitr::include_graphics("images/rstdi/rstudiosetupfile.png")
 ```
 
